@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mixtudo Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+<!-- Botão de menu -->
+<div id="menu-btn" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<!-- Menu lateral oculto -->
+<div id="menu-lateral" class="fechado">
+  <ul>
+    <li onclick="abrirTema()">🎨 Tema</li>
+    <li onclick="fazerLogin()">🔐 Login</li>
+    <li onclick="abrirReclamacoes()">💬 Reclamações</li>
+  </ul>
+</div>
+
+<!-- Seletor de tema -->
+<div id="menu-tema" class="popup oculto">
+  <h3>Escolher Tema</h3>
+  <button onclick="setTema('claro')">Claro</button>
+  <button onclick="setTema('escuro')">Escuro</button>
+  <button disabled title="Apenas para clientes">VIP 🔒</button>
+</div>
+
+<!-- Formulário de reclamações -->
+<div id="menu-reclamacoes" class="popup oculto">
+  <h3>Reclamações / Recomendações</h3>
+  <textarea placeholder="Escreva aqui..." rows="4"></textarea>
+  <button onclick="enviarReclamacao()">Enviar</button>
+</div>
+
+<a href="https://discord.gg/uADtC72G" class="discord-float" target="_blank">
+  💬 Fale conosco no Discord
+</a>
+ 
+  <div id="particles-js"></div>
+
+  <header>
+  <h1>🛒 Mixtudo Store <span class="emoji">🐒</span></h1>
+  <a href="https://discord.gg/uADtC72G" class="discord" target="_blank">💬 Entrar no Discord</a>
+  <a href="#verificador" class="verificar">Verificar Compra</a>
+</header>
+
+  <div class="typewriter">
+    <h2 id="mensagem"></h2>
+  </div>
+
+  <div id="compra-teste" onclick="abrirDetalhes('Compra Teste', '', 0.50)">
+    💡 Compra Teste – R$0,50
+  </div>
+
+  <main class="container">
+    <section class="produto" style="--i:0">
+      <img src="image3.png" alt="Conta Nitrada" />
+      <h2>Conta nitrada</h2>
+      <p class="preco">R$10,99</p>
+      <button onclick="abrirDetalhes('Conta nitrada', 'image3.png', 10.99)">Comprar</button>
+    </section>
+
+    <section class="produto" style="--i:1">
+      <img src="image4.png" alt="Programa de Otimização" />
+      <h2>Programa de Otimização</h2>
+      <p class="preco">R$39,99</p>
+      <button onclick="abrirDetalhes('Programa de Otimização', 'image4.png', 39.99)">Comprar</button>
+    </section>
+
+    <section class="produto" style="--i:2">
+      <img src="image1.png" alt="Conta Rockstar" />
+      <h2>Conta Rockstar</h2>
+      <p class="preco">R$5,99</p>
+      <button onclick="abrirDetalhes('Conta Rockstar', 'image1.png', 5.99)">Comprar</button>
+    </section>
+
+    <section class="produto" style="--i:3">
+      <img src="image2.png" alt="Chetos Sampi" />
+      <h2>Chetos Sampi</h2>
+      <p class="preco">R$29,99</p>
+      <button onclick="abrirDetalhes('Chetos Sampi', 'image2.png', 29.99)">Comprar</button>
+    </section>
+  
+  <section class="produto" style="--i:4">
+  <img src="image5.png" alt="Conta Spotify Barata" />
+  <h2>Conta Spotify Barata</h2>
+  <p class="preco">R$3,99</p>
+  <button onclick="abrirDetalhes('Conta Spotify', 'image5.png', 3.99)">Comprar</button>
+</section>
+  </main>
+
+  <!-- Modal de Compra -->
+  <div id="modal-compra" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <h2 id="modal-titulo">Finalizar Compra</h2>
+      <img id="modal-imagem" src="" alt="" />
+      <p><strong>Produto:</strong> <span id="modal-produto"></span></p>
+      <p><strong>Preço:</strong> R$<span id="modal-preco"></span></p>
+      <p><strong>Pix:</strong> <span id="modal-pix">+55 11 98886-3859</span></p>
+      <button onclick="copiarPix()">📋 Copiar Pix</button>
+      <button onclick="gerarComprovante()">🎟️ Gerar Código de Comprovante</button>
+      <p id="codigo-comprovante"></p>
+    </div>
+  </div>
+
+  <!-- Verificador -->
+  <section id="verificador" class="verificador">
+    <h2>Verificar Comprovante</h2>
+    <input type="text" id="codigo" placeholder="Digite o código..." />
+    <button onclick="verificarComprovante()">Verificar</button>
+    <div id="resultado" style="margin-top:10px;"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

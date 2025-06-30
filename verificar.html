@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificar Comprovante</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .verificacao-container {
+      max-width: 500px;
+      margin: 100px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px #a52a2a88;
+    }
+
+    .verificacao-container h2 {
+      margin-bottom: 20px;
+      color: #f83939;
+    }
+
+    .verificacao-container input {
+      padding: 10px;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .verificacao-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #962323;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .verificacao-container button:hover {
+      background-color: #fc3d3d;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="verificacao-container">
+    <h2>Verificar Comprovante</h2>
+    <input type="text" id="codigo" placeholder="Digite o código do comprovante" />
+    <button onclick="verificarComprovante()">Verificar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const comprovantesValidos = [
+      "ABC123",
+      "PIX987",
+      "MIX2025",
+      "TESTE50",
+      "ROCKSTAR5",
+      "OPT39",
+      "SAMPI29"
+    ];
+
+    function verificarComprovante() {
+      const input = document.getElementById("codigo").value.trim().toUpperCase();
+      const resultado = document.getElementById("resultado");
+
+      if (comprovantesValidos.includes(input)) {
+        resultado.textContent = "✅ Comprovante VÁLIDO!";
+        resultado.style.color = "lime";
+      } else {
+        resultado.textContent = "❌ Comprovante INVÁLIDO!";
+        resultado.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
